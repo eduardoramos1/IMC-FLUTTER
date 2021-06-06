@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'reusable_card.dart';
+import 'icon_content.dart';
+
+const activeCardColor = Color(0XFF1D1E33);
+const bottomContainerColor = Color(0xFFEB1555);
 
 class InputPage extends StatefulWidget {
   @override
@@ -18,47 +25,42 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(colour: Color(0XFF1D1E33)),
+                  child: ReusableCard(
+                    colour: activeCardColor,
+                    cardChild: IconContent(icon: FontAwesomeIcons.mars, text: 'MASCULINO'),
+                  ),
                 ),
                 Expanded(
-                  child: ReusableCard(colour: Color(0XFF1D1E33)),
+                  child: ReusableCard(
+                    colour: activeCardColor,
+                    cardChild: IconContent(icon: FontAwesomeIcons.venus, text: 'FEMININO'),
+                  ),
                 ),
               ],
             ),
           ),
           Expanded(
-            child: ReusableCard(colour: Color(0XFF1D1E33)),
+            child: ReusableCard(colour: activeCardColor),
           ),
           Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(colour: Color(0XFF1D1E33)),
+                  child: ReusableCard(colour: activeCardColor),
                 ),
                 Expanded(
-                  child: ReusableCard(colour: Color(0XFF1D1E33)),
+                  child: ReusableCard(colour: activeCardColor),
                 ),
               ],
             ),
           ),
+          Container(
+            color: bottomContainerColor,
+            margin: EdgeInsets.only(top: 10),
+            width: double.infinity,
+            height: 80,
+          ),
         ],
-      ),
-    );
-  }
-}
-
-class ReusableCard extends StatelessWidget {
-  ReusableCard({@required this.colour});
-
-  final Color colour;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: colour,
       ),
     );
   }
